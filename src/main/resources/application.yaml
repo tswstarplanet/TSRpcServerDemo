@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: TSRpcServerDemo
+tsrpc:
+  application:
+    applicationId: tsRpcServerDemo
+    version: 1.0
+  common:
+    protocol: http
+    transformType: jackson
+  registry:
+    enable: true
+    name: nacos
+    serverList: 127.0.0.1:8848
+    namespace: test
+#  loadbalancer:
+#    type: random
+  server:
+    port: 8081
+    bossNum: 5
+    workerNum: 30
+    serviceInvoker: javassist
+    invokerFilters:
+      - com.wts.tsrpc.server.filter.LogServerInvokerFilter
+      - com.wts.tsrpc.server.filter.CheckServerInvokerFilter
